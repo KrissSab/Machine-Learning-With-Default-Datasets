@@ -13,7 +13,7 @@ from pages.spam_email import SpamEmail
 from pages.titanic_decision_tree import TitanicDecisionTree
 from pages.credit_approval_decision_tree import CreditApprovalDecisionTree
 from pages.fashion_decision_tree import FashionDecisionTree
-from pages.loan_default_prediction import LoadDefaultPrediction
+from pages.loan_default_prediction import LoanDefaultPrediction
 
 
 class HomeWindow(QMainWindow):
@@ -42,7 +42,7 @@ class HomeWindow(QMainWindow):
             TitanicDecisionTree(),
             CreditApprovalDecisionTree(),
             FashionDecisionTree(),
-            LoadDefaultPrediction()
+            LoanDefaultPrediction()
         ]
 
         task_names = [
@@ -51,7 +51,7 @@ class HomeWindow(QMainWindow):
             "Titanic DT",
             "Credit Approval DT",
             "Fashion DT",
-            "Load Default Prediction"
+            "Loan Default Prediction"
         ]
 
         for i in range(6):
