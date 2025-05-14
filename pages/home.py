@@ -13,7 +13,7 @@ from pages.spam_email import SpamEmail
 from pages.titanic_decision_tree import TitanicDecisionTree
 from pages.credit_approval_decision_tree import CreditApprovalDecisionTree
 from pages.fashion_decision_tree import FashionDecisionTree
-from pages.load_default_prediction import LoadDefaultPrediction
+from pages.loan_default_prediction import LoadDefaultPrediction
 
 
 class HomeWindow(QMainWindow):
