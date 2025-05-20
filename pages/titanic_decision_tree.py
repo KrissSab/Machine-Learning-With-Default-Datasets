@@ -222,10 +222,10 @@ class TitanicDecisionTree(QMainWindow):
         if directory:
             try:
                 # Завантаження файлів
-                train_path = os.path.join(directory, "csvs/titanic/train.csv")
-                test_path = os.path.join(directory, "csvs/titanic/test.csv")
+                train_path = os.path.join(directory, "train.csv")
+                test_path = os.path.join(directory, "test.csv")
                 gender_submission_path = os.path.join(
-                    directory, "csvs/titanic/gender_submission.csv")
+                    directory, "gender_submission.csv")
 
                 if not os.path.exists(train_path) or not os.path.exists(test_path) or not os.path.exists(gender_submission_path):
                     self.data_status_label.setText(
