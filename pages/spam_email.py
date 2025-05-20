@@ -28,6 +28,7 @@ from sklearn.metrics import (
 )
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
 from sklearn.feature_selection import SelectKBest, chi2
+from sklearn.feature_extraction.text import TfidfTransformer
 import numpy as np
 import pandas as pd
 import seaborn as sns
@@ -112,7 +113,7 @@ class SpamEmail(QMainWindow):
 
         self.preprocessing_combo = QComboBox()
         self.preprocessing_combo.addItems(
-            ["Без обробки", "StandardScaler", "MinMaxScaler"])
+            ["Без обробки", "StandardScaler", "MinMaxScaler", "TF-IDF"])
         controls_layout.addWidget(self.preprocessing_combo, 1, 1)
 
         # Вибір відбору ознак
@@ -203,6 +204,12 @@ class SpamEmail(QMainWindow):
         elif preprocessing_method == "MinMaxScaler":
             scaler = MinMaxScaler()
             X = pd.DataFrame(scaler.fit_transform(X), columns=X.columns)
+        elif preprocessing_method == "TF-IDF":
+            # TF-IDF трансформація для спам-фільтрації
+            # Спамбаза вже містить частотні характеристики, тому застосовуємо TF-IDF трансформацію
+            tfidf = TfidfTransformer()
+            X = pd.DataFrame(tfidf.fit_transform(
+                X).toarray(), columns=X.columns)
 
         # Відбір ознак
         if use_feature_selection:
